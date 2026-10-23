@@ -1,0 +1,136 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>ModeloMini Tertulianos BG</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#f6f4ef;
+  --surface:#ffffff;
+  --fg:#2b2a26;
+  --muted:#8a877d;
+  --border:#d8d4c8;
+  --pk:#a32d2d;
+  --fk:#185fa5;
+  --accent:#0f6e56;
+  --font-sans:"IBM Plex Sans",system-ui,sans-serif;
+  --font-mono:"IBM Plex Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#1c1b18;
+    --surface:#242320;
+    --fg:#e9e6dc;
+    --muted:#9b978a;
+    --border:#3a382f;
+    --pk:#f09595;
+    --fk:#85b7eb;
+    --accent:#5dcaa5;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#1c1b18;
+  --surface:#242320;
+  --fg:#e9e6dc;
+  --muted:#9b978a;
+  --border:#3a382f;
+  --pk:#f09595;
+  --fk:#85b7eb;
+  --accent:#5dcaa5;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--fg);
+  font-family:var(--font-sans);
+  padding-left:max(16px, env(safe-area-inset-left,0px));
+  padding-right:max(16px, env(safe-area-inset-right,0px));
+}
+.wrap{max-width:1400px;margin:0 auto;padding-block:40px 56px}
+h1{
+  font-size:22px;
+  font-weight:500;
+  margin:0 0 6px;
+  letter-spacing:-0.01em;
+}
+.sub{
+  color:var(--muted);
+  font-size:14px;
+  margin:0 0 28px;
+  max-width:70ch;
+  line-height:1.6;
+}
+.legend{
+  display:flex;
+  flex-wrap:wrap;
+  gap:20px;
+  align-items:center;
+  padding:14px 18px;
+  border:1px solid var(--border);
+  border-radius:10px;
+  background:var(--surface);
+  margin-bottom:22px;
+  font-size:13px;
+}
+.legend-item{display:flex;align-items:center;gap:8px;white-space:nowrap}
+.swatch{
+  font-family:var(--font-mono);
+  font-size:13px;
+  font-weight:600;
+  padding:1px 2px;
+}
+.swatch.pk{color:var(--pk);text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px}
+.swatch.fk{color:var(--fk);text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px}
+.swatch.pkfk{color:var(--pk);text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px;border-bottom:1.4px solid var(--fk);padding-bottom:3px}
+.swatch.null{color:var(--muted)}
+.legend-label{color:var(--muted)}
+.diagram-frame{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:var(--surface);
+  padding:28px;
+  overflow-x:auto;
+}
+.diagram-frame svg{display:block;min-width:1400px}
+.note{
+  margin-top:20px;
+  font-size:13px;
+  color:var(--muted);
+  line-height:1.6;
+  max-width:70ch;
+}
+.note code{
+  font-family:var(--font-mono);
+  font-size:12px;
+  background:var(--bg);
+  border:1px solid var(--border);
+  border-radius:4px;
+  padding:1px 5px;
+}
+</style>
+
+<div class="wrap">
+  <h1>ModeloMini — Tertulianos BG</h1>
+  <p class="sub">Diseño lógico del ciclo 1: cada tabla con sus atributos, claves primarias y foráneas, y nulabilidad. Las tablas de detalle se añadieron para implementar las relaciones muchos a muchos del conceptual.</p>
+
+  <div class="legend">
+    <div class="legend-item"><span class="swatch pk">clave</span><span class="legend-label">clave primaria</span></div>
+    <div class="legend-item"><span class="swatch fk">clave</span><span class="legend-label">clave foránea</span></div>
+    <div class="legend-item"><span class="swatch pkfk">clave</span><span class="legend-label">primaria y foránea (clave compartida)</span></div>
+    <div class="legend-item"><span class="swatch null">!atributo</span><span class="legend-label">acepta nulos</span></div>
+  </div>
+
+  <div class="diagram-frame" id="diagram-frame"><svg width="100%" viewBox="0 0 2302 790" role="img" xmlns="http://www.w3.org/2000/svg"><title>Modelo logico ModeloMini Tertulianos BG</title><desc>Diagrama de esquema relacional con tablas, claves primarias en rojo subrayado, claves foraneas en azul subrayado, claves alternas en verde subrayado punteado, atributos nulos marcados con signo de admiracion, y flechas de cada clave foranea hacia la clave primaria o alterna referenciada.</desc><defs>
+<marker id="fkarrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+<path d="M1 1L9 5L1 9" fill="none" stroke="var(--fk)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+</marker>
+</defs><g><path d="M835.7 212.0 C795.7 212.0, 907.0 82.0, 867.0 82.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M1508.6 212.0 C1468.6 212.0, 907.0 82.0, 867.0 82.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M1508.6 212.0 C1468.6 212.0, 1488.6 212.0, 1448.6 212.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M690.6 180.0 C690.6 146.0, 169.8 124.0, 169.8 90.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M217.6 310.0 C217.6 276.0, 252.3 254.0, 252.3 220.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M454.6 342.0 C494.6 342.0, 1468.6 212.0, 1508.6 212.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M330.4 480.0 C330.4 514.0, 148.1 536.0, 148.1 570.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M514.6 342.0 C474.6 342.0, 442.5 472.0, 402.5 472.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M1084.0 342.0 C1124.0 342.0, 1468.6 212.0, 1508.6 212.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M462.5 472.0 C422.5 472.0, 442.5 472.0, 402.5 472.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M174.2 700.0 C174.2 666.0, 148.1 644.0, 148.1 610.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/><path d="M688.2 732.0 C648.2 732.0, 468.5 602.0, 428.5 602.0" fill="none" stroke="var(--fk)" stroke-width="1.3" opacity="0.55" marker-end="url(#fkarrow)"/></g><g><rect x="50.0" y="50.0" width="378.5" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="82.0" font-weight="600" fill="var(--fg)">Proveedor</tspan><tspan x="148.1" y="82.0" fill="var(--muted)">(</tspan><tspan x="156.8" y="82.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">NIT</tspan><tspan x="182.8" y="82.0" fill="var(--muted)">, </tspan><tspan x="200.2" y="82.0" fill="var(--fg)">nombre</tspan><tspan x="252.3" y="82.0" fill="var(--muted)">, </tspan><tspan x="269.6" y="82.0" fill="var(--muted)">!</tspan><tspan x="278.3" y="82.0" fill="var(--fg)">contacto</tspan><tspan x="347.8" y="82.0" fill="var(--muted)">, </tspan><tspan x="365.1" y="82.0" fill="var(--fg)">mail</tspan><tspan x="399.8" y="82.0" fill="var(--muted)">)</tspan></text></g><g><rect x="488.5" y="50.0" width="378.5" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="508.5" y="82.0" font-weight="600" fill="var(--fg)">Editorial</tspan><tspan x="586.6" y="82.0" fill="var(--muted)">(</tspan><tspan x="595.3" y="82.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">NIT</tspan><tspan x="621.4" y="82.0" fill="var(--muted)">, </tspan><tspan x="638.7" y="82.0" fill="var(--fg)">nombre</tspan><tspan x="690.8" y="82.0" fill="var(--muted)">, </tspan><tspan x="708.2" y="82.0" fill="var(--muted)">!</tspan><tspan x="716.8" y="82.0" fill="var(--fg)">contacto</tspan><tspan x="786.3" y="82.0" fill="var(--muted)">, </tspan><tspan x="803.6" y="82.0" fill="var(--fg)">mail</tspan><tspan x="838.4" y="82.0" fill="var(--muted)">)</tspan></text></g><g><rect x="835.7" y="180.0" width="612.9" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="855.7" y="212.0" font-weight="600" fill="var(--fg)">Licencia</tspan><tspan x="925.2" y="212.0" fill="var(--muted)">(</tspan><tspan x="933.8" y="212.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="951.2" y="212.0" fill="var(--muted)">, </tspan><tspan x="968.6" y="212.0" fill="var(--muted)">!</tspan><tspan x="977.2" y="212.0" fill="var(--fg)">contrato</tspan><tspan x="1046.7" y="212.0" fill="var(--muted)">, </tspan><tspan x="1064.0" y="212.0" fill="var(--fg)">fecha_inicial</tspan><tspan x="1176.9" y="212.0" fill="var(--muted)">, </tspan><tspan x="1194.2" y="212.0" fill="var(--fg)">fecha_final</tspan><tspan x="1289.7" y="212.0" fill="var(--muted)">, </tspan><tspan x="1307.1" y="212.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">editorial_NIT</tspan><tspan x="1419.9" y="212.0" fill="var(--muted)">)</tspan></text></g><g><rect x="1508.6" y="180.0" width="743.1" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="1528.6" y="212.0" font-weight="600" fill="var(--fg)">Juego</tspan><tspan x="1572.0" y="212.0" fill="var(--muted)">(</tspan><tspan x="1580.7" y="212.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="1598.0" y="212.0" fill="var(--muted)">, </tspan><tspan x="1615.4" y="212.0" fill="var(--fg)">nombre</tspan><tspan x="1667.5" y="212.0" fill="var(--muted)">, </tspan><tspan x="1684.8" y="212.0" fill="var(--muted)">!</tspan><tspan x="1693.5" y="212.0" fill="var(--fg)">manual</tspan><tspan x="1745.6" y="212.0" fill="var(--muted)">, </tspan><tspan x="1763.0" y="212.0" fill="var(--fg)">stock</tspan><tspan x="1806.4" y="212.0" fill="var(--muted)">, </tspan><tspan x="1823.7" y="212.0" fill="var(--fg)">precio</tspan><tspan x="1875.8" y="212.0" fill="var(--muted)">, </tspan><tspan x="1893.2" y="212.0" fill="var(--fg)">categoria</tspan><tspan x="1971.3" y="212.0" fill="var(--muted)">, </tspan><tspan x="1988.6" y="212.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">editorial_NIT</tspan><tspan x="2101.5" y="212.0" fill="var(--muted)">, </tspan><tspan x="2118.8" y="212.0" fill="var(--muted)">!</tspan><tspan x="2127.5" y="212.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">licencia_id</tspan><tspan x="2223.0" y="212.0" fill="var(--muted)">)</tspan></text></g><g><rect x="50.0" y="180.0" width="725.7" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="212.0" font-weight="600" fill="var(--fg)">OrdenAbastecimiento</tspan><tspan x="234.9" y="212.0" fill="var(--muted)">(</tspan><tspan x="243.6" y="212.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="261.0" y="212.0" fill="var(--muted)">, </tspan><tspan x="278.3" y="212.0" fill="var(--fg)">fecha_pedido</tspan><tspan x="382.5" y="212.0" fill="var(--muted)">, </tspan><tspan x="399.8" y="212.0" fill="var(--muted)">!</tspan><tspan x="408.5" y="212.0" fill="var(--fg)">fecha_entrega</tspan><tspan x="521.4" y="212.0" fill="var(--muted)">, </tspan><tspan x="538.7" y="212.0" fill="var(--fg)">entregado</tspan><tspan x="616.8" y="212.0" fill="var(--muted)">, </tspan><tspan x="634.2" y="212.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">proveedor_NIT</tspan><tspan x="747.0" y="212.0" fill="var(--muted)">)</tspan></text></g><g><rect x="50.0" y="310.0" width="404.6" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="342.0" font-weight="600" fill="var(--fg)">DetalleOrden</tspan><tspan x="174.2" y="342.0" fill="var(--muted)">(</tspan><tspan x="182.8" y="342.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">orden_id</tspan><tspan x="252.3" y="342.0" fill="var(--muted)">, </tspan><tspan x="269.6" y="342.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">juego_id</tspan><tspan x="339.1" y="342.0" fill="var(--muted)">, </tspan><tspan x="356.4" y="342.0" fill="var(--fg)">cantidad</tspan><tspan x="425.9" y="342.0" fill="var(--muted)">)</tspan></text><line x1="182.8" y1="348.0" x2="252.3" y2="348.0" stroke="var(--fk)" stroke-width="1.4"/><line x1="269.6" y1="348.0" x2="339.1" y2="348.0" stroke="var(--fk)" stroke-width="1.4"/></g><g><rect x="50.0" y="440.0" width="352.5" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="472.0" font-weight="600" fill="var(--fg)">Pedido</tspan><tspan x="122.1" y="472.0" fill="var(--muted)">(</tspan><tspan x="130.8" y="472.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="148.1" y="472.0" fill="var(--muted)">, </tspan><tspan x="165.5" y="472.0" fill="var(--fg)">fecha</tspan><tspan x="208.9" y="472.0" fill="var(--muted)">, </tspan><tspan x="226.2" y="472.0" fill="var(--fg)">total</tspan><tspan x="269.6" y="472.0" fill="var(--muted)">, </tspan><tspan x="287.0" y="472.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">cliente_id</tspan><tspan x="373.8" y="472.0" fill="var(--muted)">)</tspan></text></g><g><rect x="514.6" y="310.0" width="569.5" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="534.6" y="342.0" font-weight="600" fill="var(--fg)">DetallePedido</tspan><tspan x="647.4" y="342.0" fill="var(--muted)">(</tspan><tspan x="656.1" y="342.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">pedido_id</tspan><tspan x="734.2" y="342.0" fill="var(--muted)">, </tspan><tspan x="751.6" y="342.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">juego_id</tspan><tspan x="821.0" y="342.0" fill="var(--muted)">, </tspan><tspan x="838.4" y="342.0" fill="var(--fg)">cantidad</tspan><tspan x="907.8" y="342.0" fill="var(--muted)">, </tspan><tspan x="925.2" y="342.0" fill="var(--fg)">precio_unitario</tspan><tspan x="1055.4" y="342.0" fill="var(--muted)">)</tspan></text><line x1="656.1" y1="348.0" x2="734.2" y2="348.0" stroke="var(--fk)" stroke-width="1.4"/><line x1="751.6" y1="348.0" x2="821.0" y2="348.0" stroke="var(--fk)" stroke-width="1.4"/></g><g><rect x="462.5" y="440.0" width="708.4" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="482.5" y="472.0" font-weight="600" fill="var(--fg)">Envio</tspan><tspan x="525.9" y="472.0" fill="var(--muted)">(</tspan><tspan x="534.6" y="472.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="551.9" y="472.0" fill="var(--muted)">, </tspan><tspan x="569.3" y="472.0" fill="var(--fg)">empresa</tspan><tspan x="630.0" y="472.0" fill="var(--muted)">, </tspan><tspan x="647.4" y="472.0" fill="var(--fg)">NIT</tspan><tspan x="673.4" y="472.0" fill="var(--muted)">, </tspan><tspan x="690.8" y="472.0" fill="var(--muted)">!</tspan><tspan x="699.5" y="472.0" fill="var(--fg)">fecha_entrega</tspan><tspan x="812.3" y="472.0" fill="var(--muted)">, </tspan><tspan x="829.7" y="472.0" fill="var(--fg)">fecha_recogida</tspan><tspan x="951.2" y="472.0" fill="var(--muted)">, </tspan><tspan x="968.6" y="472.0" fill="var(--fg)">entregado</tspan><tspan x="1046.7" y="472.0" fill="var(--muted)">, </tspan><tspan x="1064.0" y="472.0" fill="var(--fk)" style="text-decoration:underline;text-decoration-color:var(--fk);text-underline-offset:3px">pedido_id</tspan><tspan x="1142.2" y="472.0" fill="var(--muted)">)</tspan></text></g><g><rect x="50.0" y="570.0" width="378.5" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="602.0" font-weight="600" fill="var(--fg)">Cliente</tspan><tspan x="130.8" y="602.0" fill="var(--muted)">(</tspan><tspan x="139.4" y="602.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="156.8" y="602.0" fill="var(--muted)">, </tspan><tspan x="174.2" y="602.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">tipo_cliente</tspan><tspan x="278.3" y="602.0" fill="var(--muted)">, </tspan><tspan x="295.7" y="602.0" fill="var(--fg)">nombre</tspan><tspan x="347.8" y="602.0" fill="var(--muted)">, </tspan><tspan x="365.1" y="602.0" fill="var(--fg)">mail</tspan><tspan x="399.8" y="602.0" fill="var(--muted)">)</tspan></text></g><g><rect x="50.0" y="700.0" width="578.2" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="70.0" y="732.0" font-weight="600" fill="var(--fg)">Particular</tspan><tspan x="156.8" y="732.0" fill="var(--muted)">(</tspan><tspan x="165.5" y="732.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="182.8" y="732.0" fill="var(--muted)">, </tspan><tspan x="200.2" y="732.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">tipo_cliente</tspan><tspan x="304.4" y="732.0" fill="var(--muted)">, </tspan><tspan x="321.7" y="732.0" fill="var(--fg)">tipo_documento</tspan><tspan x="443.2" y="732.0" fill="var(--muted)">, </tspan><tspan x="460.6" y="732.0" fill="var(--fg)">numero_documento</tspan><tspan x="599.5" y="732.0" fill="var(--muted)">)</tspan></text><line x1="165.5" y1="738.0" x2="182.8" y2="738.0" stroke="var(--fk)" stroke-width="1.4"/><line x1="200.2" y1="738.0" x2="304.4" y2="738.0" stroke="var(--fk)" stroke-width="1.4"/></g><g><rect x="688.2" y="700.0" width="413.2" height="40.0" rx="6" fill="var(--surface)" stroke="var(--border)" stroke-width="1"/><text font-family="var(--font-mono)" font-size="14"><tspan x="708.2" y="732.0" font-weight="600" fill="var(--fg)">Tienda</tspan><tspan x="760.2" y="732.0" fill="var(--muted)">(</tspan><tspan x="768.9" y="732.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">id</tspan><tspan x="786.3" y="732.0" fill="var(--muted)">, </tspan><tspan x="803.6" y="732.0" fill="var(--pk)" style="text-decoration:underline;text-decoration-color:var(--pk);text-underline-offset:3px">tipo_cliente</tspan><tspan x="907.8" y="732.0" fill="var(--muted)">, </tspan><tspan x="925.2" y="732.0" fill="var(--fg)">NIT</tspan><tspan x="951.2" y="732.0" fill="var(--muted)">, </tspan><tspan x="968.6" y="732.0" fill="var(--fg)">razon_social</tspan><tspan x="1072.7" y="732.0" fill="var(--muted)">)</tspan></text><line x1="768.9" y1="738.0" x2="786.3" y2="738.0" stroke="var(--fk)" stroke-width="1.4"/><line x1="803.6" y1="738.0" x2="907.8" y2="738.0" stroke="var(--fk)" stroke-width="1.4"/></g></svg></div>
+
+  <p class="note">
+    <code>DetalleOrden</code> y <code>DetallePedido</code> implementan las relaciones muchos a muchos Orden&ndash;Juego y Pedido&ndash;Juego del diagrama conceptual; no tienen clave propia, su clave primaria es la combinaci&oacute;n de las dos for&aacute;neas, cada una hacia una tabla distinta. <code>Cliente</code> tiene clave primaria compuesta <code>(id, tipo_cliente)</code> para poder referenciarla desde sus subtipos. <code>Particular</code> y <code>Tienda</code> comparten esa clave con <code>Cliente</code> (especializaci&oacute;n disjunta): sus columnas <code>id</code> y <code>tipo_cliente</code> son a la vez su propia clave primaria y una clave for&aacute;nea compuesta hacia <code>Cliente(id, tipo_cliente)</code>, con <code>tipo_cliente</code> fijo (<code>'PARTICULAR'</code> o <code>'TIENDA'</code>); como ambas columnas referencian la misma tabla, se dibuja una sola flecha. La misma t&eacute;cnica aplica a <code>Juego.licencia_id</code> junto con <code>editorial_NIT</code> hacia <code>Licencia(id, editorial_NIT)</code>, para forzar que la licencia sea de la misma editorial del juego; esa flecha no se dibuj&oacute; para no sobrecargar el diagrama.
+  </p>
+</div>
+
+
+</body></html>
